@@ -170,8 +170,16 @@ function mainMenu(person, people){
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
+  let personFoundByFullName = people.filter(function(el){
+    if (el.firstName == firstName && el.lastName == lastName){
+      return true;
+    }
+  });
+displayPerson(personFoundByFullName[0]);
+   //return personFoundByFullName;
 
   // TODO: find the person using the name they entered
+
 
 }
 function searchById(person) {
@@ -194,7 +202,7 @@ function immediateFamily(person){
 	displayPeople(family);
 }
 
-// alerts a list of people
+// alerts a list of people. function for arrays
 function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
@@ -221,7 +229,7 @@ function insertAge(people) {
 }
 
 function displayPerson(person){
-  // print all of the information about a person:
+  // print all of the information about a person:  function for objects
   // height, weight, age, name, occupation, eye color.
   var personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
