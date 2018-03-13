@@ -49,7 +49,7 @@ function searchByTraits(people) {
   }  
 
   let foundPerson = filteredPeople[0];
-
+  displayPeople (filteredPeople);
   mainMenu(foundPerson, people);
 
 }
@@ -95,6 +95,7 @@ function searchByGender(people) {
   let newArray = people.filter(function (el) {
     if(el.gender == userInputGender) {
       return true;
+    
     }
     // return true if el.gender matches userInputHeight
   });
@@ -108,7 +109,7 @@ function searchByAge(people) {
     if(el.age == userInputAge) {
       return true;
     }
-    // return true if el.age matches userInputHeight
+    // return true if el.age matches userInput
   });
 
   return newArray;
