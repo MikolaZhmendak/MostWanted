@@ -37,7 +37,7 @@
       "ecmaVersion": 6,
       "sourceType": "module"
     },
-    "rules":{
+    "rules": {
       "semi": 1,
       "no-unused-vars": 0
     }
