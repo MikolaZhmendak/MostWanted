@@ -4,6 +4,7 @@ Build all of your functions for displaying and gathering information below (GUI)
 
 // app is the function called to start the entire application
 function app(people){
+  people = insertAge(people);
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
@@ -131,6 +132,7 @@ function searchByOccupation(people) {
 
   return newArray;
 }
+
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
@@ -185,12 +187,50 @@ function searchByName(people){
 
 
 }
+function searchById(person) {
+  let parents = person.parents;
+
+  let newArray = people.filter(function (el) {
+    if(el.id == parents[0] || el.id == parents[1]) {
+      return true;
+    }
+    // return true if el.id matches parent
+  });
+
+  return newArray;
+}
+function immediateFamily(person){
+	let spouse = "";
+	let sibling = "";
+	let parents = searchById(people,person);
+	let family = parents.concat(sibling.concat(spouse));
+	displayPeople(family);
+}
 
 // alerts a list of people. function for arrays
 function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
   }).join("\n"));
+}
+function getAge(dob){ 
+	let array = dob.split("/");
+	let year = Number(array[2]);
+	let month = Number(array[0]) - 1;
+	let day = Number(array[1]);
+	let today = new Date();
+	let age = today.getFullYear() - year;
+	if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+		age--;
+	}
+	return age;
+}
+
+function insertAge(people) {
+	for (let i = 0; i < people.length; i++) {
+		people[i].age = getAge(people[i].dob);
+	}
+	return people;
 }
 
 function displayPerson(person){
