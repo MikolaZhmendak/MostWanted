@@ -48,10 +48,14 @@ function searchByTraits(people) {
       break;
   }  
 
-  let foundPerson = filteredPeople[0];
-  displayPeople (filteredPeople);
-  mainMenu(foundPerson, people);
-
+  if (filteredPeople.length > 1) {
+ 		displayPeople (filteredPeople);
+  	searchByTraits(filteredPeople);
+  } else {
+   
+   	let foundPerson = filteredPeople[0];
+	  mainMenu(foundPerson, people);
+	}
 }
 function searchByHeight(people) {
   let userInputHeight = prompt("What is the persons height?");
