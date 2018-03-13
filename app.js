@@ -17,6 +17,7 @@ function app(people){
     app(people); // restart app
     break;
   }
+
 }
 
 function searchByTraits(people) {
@@ -144,7 +145,7 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    	
+    displayPerson(person);
     // TODO: get person's info
     break;
     case "family":
@@ -173,7 +174,11 @@ function searchByName(people){
       return true;
     }
   });
-displayPerson(personFoundByFullName[0]);
+
+    mainMenu(personFoundByFullName[0], people);
+
+   // return personFoundByFullName[0];
+ /// displayPerson(personFoundByFullName[0]);
    //return personFoundByFullName;
 
   // TODO: find the person using the name they entered
