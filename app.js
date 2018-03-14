@@ -16,7 +16,7 @@ function app(people){
 }
 
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit', 'reset' search.");
+  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit', 'reset' search. You may also 'restart' your search completely.");
   let filteredPeople;
 
   switch(userSearchChoice) {
@@ -42,6 +42,9 @@ function searchByTraits(people) {
       alert("Your search criteria has been 'reset'")
       searchByTraits(people);
       break;
+      case "restart":
+      app(people);
+      break;
       case "quit":
       return; 
       default:
@@ -50,7 +53,7 @@ function searchByTraits(people) {
       break;
   }  
 
-  if (filteredPeople.length > 1) {
+  if (filteredPeople.length > 1) {normalize
  		displayPeople (filteredPeople);
   	searchByTraits(filteredPeople);
   } else {
