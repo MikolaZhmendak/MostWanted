@@ -112,7 +112,7 @@ function searchByAge(people) {
   let userInputAgeAtLeast = prompt("The person you are looking for at least how old?");
   let userInputAgeAtMost = prompt("The person you are looking for has a max age of?");
   let newArray = people.filter(function (el) {
-    if(el.age <= userInputAgeAtMost && el.age >= userInputAgeAtLeast) {
+    if ((el.age <= userInputAgeAtMost) && (el.age >= userInputAgeAtLeast)) {
       
       return true;
     }
