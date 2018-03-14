@@ -188,7 +188,7 @@ function searchByName(people){
 
 }
 function searchById(person) {
-  let parents = person.parents;
+  let foundParents = person.parents;
 
   let newArray = people.filter(function (el) {
     if(el.id == parents[0] || el.id == parents[1]) {
