@@ -16,7 +16,7 @@ function app(people){
 }
 
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit'.");
+  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit', 'reset' search.");
   let filteredPeople;
 
   switch(userSearchChoice) {
@@ -37,6 +37,10 @@ function searchByTraits(people) {
       break;
     case "occupation":
       filteredPeople = searchByOccupation(people);
+      break;
+      case "reset":
+      alert("Your search criteria has been 'reset'")
+      searchByTraits(people);
       break;
       case "quit":
       return; 
