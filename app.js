@@ -215,17 +215,34 @@ function displayFamily(person,people){
 	let spouse = searchById(person.currentSpouse,people);
 	let sibling = getSibling(person.parents,people);
 	let parents = searchByParentId(person.parents,people);
-	let child = [];
+	let child = getChildren(person,people);
 	let family = parents.concat(sibling.concat(spouse.concat(child)));
 	displayPeople(family);
 }
 
 function getSibling(parents,people) {
 	let siblings = [];
-	for (let i = 0;i < parents.length; i++) {
-		
-	}
+  siblings = people.filter(function (el) {
+		for (let i = 0; i < parents.length; i++) {
+			for (x = 0; x < el.parents.length; x++) {
+				if(el.parents[x] == parents[i]) {
+		      return true;
+		    }
+			}
+		}
+	});
 	return siblings;
+}
+function getChildren(person,people) {
+	let child = [];
+  child = people.filter(function (el) {
+		for (x = 0; x < el.parents.length; x++) {
+			if(el.parents[x] == person.id) {
+	      return true;
+	    }
+		}
+	});
+	return child;
 }
 // alerts a list of people. function for arrays
 function displayPeople(people){
