@@ -151,7 +151,7 @@ function mainMenu(person, people){
     // TODO: get person's info
     break;
     case "family":
-    	displayFamily(person);
+    	displayFamily(person,people);
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -186,7 +186,7 @@ function searchByName(people){
 
 
 }
-function searchById(id) {
+function searchById(id,people) {
 
 
   let newArray = people.filter(function (el) {
@@ -197,14 +197,35 @@ function searchById(id) {
   });
   return newArray;
 }
-function displayFamily(person){
-	let spouse = person.spouse;
-	let sibling = "";
-	let parents = Searchbyid(people,person);
-	let family = parents.concat(sibling.concat(spouse));
+function searchByParentId(parents,people) {
+	let newArray = [];
+	  newArray = people.filter(function (el) {
+			for (let i = 0; i < parents.length; i++) {
+		    if(el.id == parents[i]) {
+		      return true;
+		    }
+	    // return true if el.id matches parent
+	  }
+		
+	});
+  return newArray;
+}
+function displayFamily(person,people){
+	let spouse = searchById(person.currentSpouse,people);
+	let sibling = getSibling(person.parents,people);
+	let parents = searchByParentId(person.parents,people);
+	let child = [];
+	let family = parents.concat(sibling.concat(spouse.concat(child)));
 	displayPeople(family);
 }
 
+function getSibling(parents,people) {
+	let siblings = [];
+	for (let i = 0;i < parents.length; i++) {
+		
+	}
+	return siblings;
+}
 // alerts a list of people. function for arrays
 function displayPeople(people){
   alert(people.map(function(person){
@@ -234,7 +255,8 @@ function insertAge(people) {
 function displayPerson(person){
   // print all of the information about a person:  function for objects
   // height, weight, age, name, occupation, eye color.
-  var personInfo = "First Name: " + person.firstName + "\n";
+  var personInfo = "id: " + person.id + "\n";
+  personInfo += "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "		Gender: " + person.gender + "\n";
   personInfo += "		Age: " + person.age + "\n";
