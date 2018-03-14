@@ -188,6 +188,7 @@ function searchByName(people){
 }
 function searchById(id,people) {
 
+
   let newArray = people.filter(function (el) {
     if(el.id == id) {
       return true;
@@ -254,7 +255,8 @@ function insertAge(people) {
 function displayPerson(person){
   // print all of the information about a person:  function for objects
   // height, weight, age, name, occupation, eye color.
-  var personInfo = "First Name: " + person.firstName + "\n";
+  var personInfo = "id: " + person.id + "\n";
+  personInfo += "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "		Gender: " + person.gender + "\n";
   personInfo += "		Age: " + person.age + "\n";
