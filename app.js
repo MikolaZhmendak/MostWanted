@@ -109,10 +109,11 @@ function searchByGender(people) {
   return newArray;
 }
 function searchByAge(people) {
-  let userInputAge = prompt("How old is the person you are looking for?");
-
+  let userInputAgeAtLeast = prompt("The person you are looking for at least how old?");
+  let userInputAgeAtMost = prompt("The person you are looking for has a max age of?");
   let newArray = people.filter(function (el) {
-    if(el.age == userInputAge) {
+    if(el.age <= userInputAgeAtMost && el.age >= userInputAgeAtLeast) {
+      
       return true;
     }
     // return true if el.age matches userInput
@@ -258,14 +259,14 @@ function displayPerson(person){
   var personInfo ="id: " + person.id + "\n";
   personInfo += "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "		Gender: " + person.gender + "\n";
-  personInfo += "		Age: " + person.age + "\n";
-  personInfo += "		Height: " + person.height + "\n";
-  personInfo += "		Weight: " + person.weight + "\n";
-  personInfo += "		Occupation: " + person.occupation + "\n";
-  personInfo += "		Eye Color: " + person.eyeColor + "\n";
-  personInfo += "		Spouse: " + person.currentSpouse + "\n";  // TODO: finish getting the rest of the information to display
-  personInfo += "		Parent: " + person.parents + "\n";  // TODO: finish getting the rest of the information to display
+  personInfo += "Gender: " + person.gender + "\n";
+  personInfo += "Age: " + person.age + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
+  personInfo += "Spouse: " + person.currentSpouse + "\n";  // TODO: finish getting the rest of the information to display
+  personInfo += "Parent: " + person.parents + "\n";  // TODO: finish getting the rest of the information to display
 
   alert(personInfo);
 }
