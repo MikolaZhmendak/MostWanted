@@ -60,9 +60,10 @@ function searchByTraits(people) {
 	}
 }
 function searchByHeight(people) {
-  let userInputHeight = prompt("What is the persons height?");
+  let userInputHeight = promptFor("What is the persons height?", checkValidUserInput); 
 
   let newArray = people.filter(function (el) {
+
     if(el.height == userInputHeight) {
       return true;
     }
@@ -72,7 +73,7 @@ function searchByHeight(people) {
   return newArray;
 }
 function searchByWeight(people) {
-  let userInputWeight = prompt("How much does the person weigh?");
+  let userInputWeight = promptFor("How much does the person weigh?", checkValidUserInput);
 
   let newArray = people.filter(function (el) {
     if(el.weight == userInputWeight) {
@@ -84,7 +85,7 @@ function searchByWeight(people) {
   return newArray;
 }
 function searchByEyeColor(people) {
-  let userInputEyeColor = prompt("What is the persons eye color?");
+  let userInputEyeColor = promptFor("What is the persons eye color?", checkValidUserInput);
 
   let newArray = people.filter(function (el) {
     if(el.eyeColor == userInputEyeColor) {
@@ -96,7 +97,7 @@ function searchByEyeColor(people) {
   return newArray;
 }
 function searchByGender(people) {
-  let userInputGender = prompt("What is the persons gender?");
+  let userInputGender = promptFor("What is the persons gender?", checkValidUserInput);
 
   let newArray = people.filter(function (el) {
     if(el.gender == userInputGender) {
@@ -109,7 +110,7 @@ function searchByGender(people) {
   return newArray;
 }
 function searchByAge(people) {
-  let userInputAge = prompt("How old is the person you are looking for?");
+  let userInputAge = promptFor("How old is the person you are looking for?", checkValidUserInput);
 
   let newArray = people.filter(function (el) {
     if(el.age == userInputAge) {
@@ -121,7 +122,7 @@ function searchByAge(people) {
   return newArray;
 }
 function searchByOccupation(people) {
-  let userInputOccupation = prompt("What is this persons occupation?");
+  let userInputOccupation = promptFor("What is this persons occupation?", checkValidUserInput);
 
   let newArray = people.filter(function (el) {
     if(el.occupation == userInputOccupation) {
@@ -177,10 +178,6 @@ function searchByName(people){
   });
 
     mainMenu(personFoundByFullName[0], people);
-
-   // return personFoundByFullName[0];
- /// displayPerson(personFoundByFullName[0]);
-   //return personFoundByFullName;
 
   // TODO: find the person using the name they entered
 
@@ -304,11 +301,7 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
-function displaySpouceName(people){
-  let peopleWithNoSpouce = people.filter(function(el){
-    if (el.currentSpouse == null){
-      return true;
-    }
-  });
-  return peopleWithNoSpouce;
+
+function checkValidUserInput(input){
+   return input != null || input != "";
 }
