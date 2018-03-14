@@ -151,8 +151,7 @@ function mainMenu(person, people){
     // TODO: get person's info
     break;
     case "family":
-    
-    // TODO: get person's family
+    	displayFamily(person);
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -187,22 +186,20 @@ function searchByName(people){
 
 
 }
-function searchById(person) {
-  let parents = person.parents;
+function searchById(id) {
 
   let newArray = people.filter(function (el) {
-    if(el.id == parents[0] || el.id == parents[1]) {
+    if(el.id == id) {
       return true;
     }
     // return true if el.id matches parent
   });
-
   return newArray;
 }
-function immediateFamily(person){
-	let spouse = "";
+function displayFamily(person){
+	let spouse = person.spouse;
 	let sibling = "";
-	let parents = searchById(people,person);
+	let parents = Searchbyid(people,person);
 	let family = parents.concat(sibling.concat(spouse));
 	displayPeople(family);
 }
