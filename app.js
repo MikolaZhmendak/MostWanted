@@ -265,3 +265,11 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+function displaySpouceName(people){
+  let peopleWithNoSpouce = people.filter(function(el){
+    if (el.currentSpouse == null){
+      return true;
+    }
+  });
+  return peopleWithNoSpouce;
+}
