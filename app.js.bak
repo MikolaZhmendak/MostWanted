@@ -77,11 +77,11 @@ function searchByHeight(people) {
 
 function searchByWeight(people) {
 
-  let userInputWeight = promptFor("How much does the person weigh?", checkValidUserInput);
-
+  let userInputWeightAtLeast = promptFor("The person you are looking weighs at least?", checkValidUserInput);
+  let userInputWeightAtMost = promptFor("The person you are looking weighs at most?", checkValidUserInput);
 
   let newArray = people.filter(function (el) {
-    if(el.weight == userInputWeight) {
+    if((el.weight <= userInputWeightAtMost) && (el.weight >= userInputWeightAtLeast)) {
       return true;
     }
   });
