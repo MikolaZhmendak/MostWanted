@@ -10,7 +10,7 @@ function app(people){
     break;
     default:
     alert("Wrong! Please try again, following the instructions dummy. :)");
-    app(people); // restart app
+    app(people);
     break;
   }
 }
@@ -146,7 +146,7 @@ function mainMenu(person, people){
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
   switch(displayOption){
     case "info":
-    displayPerson(person);
+    displayPerson(person,people);
     break;
     case "family":
     	displayFamily(person,people);
@@ -173,12 +173,6 @@ function searchByName(people){
     }
   });
     mainMenu(personFoundByFullName[0], people);
-
-
-  // TODO: find the person using the name they entered
-
-
-
 }
 
 function searchById(id,people) {
@@ -278,7 +272,24 @@ function insertAge(people) {
 	return people;
 }
 
-function displayPerson(person){
+function getFullName(input,people){
+	let output = [];
+		if (Array.isArray(input)) {
+			for (let i = 0; i < input.length; i++){
+				output.push(searchById(input[i],people)[0]);
+			}
+		} else {
+			output = searchById(input,people);
+		}
+	
+	  fullname = output.map(function(person){
+    return person.firstName + " " + person.lastName;
+  }).join(", ");
+	return fullname;
+}
+
+
+function displayPerson(person,people){
   var personInfo ="id: " + person.id + "\n";
   personInfo += "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
@@ -288,13 +299,12 @@ function displayPerson(person){
   personInfo += "Weight: " + person.weight + "\n";
   personInfo += "Occupation: " + person.occupation + "\n";
   personInfo += "Eye Color: " + person.eyeColor + "\n";
-  personInfo += "Spouse: " + person.currentSpouse + "\n";  // TODO: finish getting the rest of the information to display
-  personInfo += "Parent: " + person.parents + "\n";  // TODO: finish getting the rest of the information to display
+  personInfo += "Spouse: " + getFullName(person.currentSpouse,people) + "\n";
+  personInfo += "Parent: " + getFullName(person.parents,people) + "\n";
 
   alert(personInfo);
 }
 
-// function that prompts and validates user input
 function promptFor(question, valid){
   do{
     var response = prompt(question).trim();
@@ -302,12 +312,10 @@ function promptFor(question, valid){
   return response;
 }
 
-// helper function to pass into promptFor to validate yes/no answers
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
-// helper function to pass in as default promptFor validation
 function chars(input){
   return true; // default validation only
 }
