@@ -16,7 +16,7 @@ function app(people){
 }
 
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit', 'reset' search. You may also 'restart' your search completely.");
+  let userSearchChoice = promptFor("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit', 'reset' search. You may also 'restart' your search completely.", checkValidUserInput);
   let filteredPeople;
 
   switch(userSearchChoice) {
@@ -39,7 +39,7 @@ function searchByTraits(people) {
       filteredPeople = searchByOccupation(people);
       break;
       case "reset":
-      alert("Your search criteria has been 'reset'")
+      alert("Your search criteria has been 'reset'");
       searchByTraits(people);
       break;
       case "restart":
@@ -91,7 +91,6 @@ function searchByWeight(people) {
 function searchByEyeColor(people) {
 
   let userInputEyeColor = promptFor("What is the persons eye color?", checkValidUserInput);
-
   let newArray = people.filter(function (el) {
     if(el.eyeColor == userInputEyeColor) {
       return true;
