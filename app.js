@@ -53,7 +53,7 @@ function searchByTraits(people) {
       break;
   }  
 
-  if (filteredPeople.length > 1) {normalize
+  if (filteredPeople.length > 1) {
  		displayPeople (filteredPeople);
   	searchByTraits(filteredPeople);
   } else {
@@ -63,12 +63,9 @@ function searchByTraits(people) {
 }
 
 function searchByHeight(people) {
-<<<<<<< HEAD
+
   let userInputHeight = promptFor("What is the persons height?", checkValidUserInput); 
 
-=======
-  let userInputHeight = prompt("What is the persons height?");
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
   let newArray = people.filter(function (el) {
 
     if(el.height == userInputHeight) {
@@ -79,12 +76,10 @@ function searchByHeight(people) {
 }
 
 function searchByWeight(people) {
-<<<<<<< HEAD
+
   let userInputWeight = promptFor("How much does the person weigh?", checkValidUserInput);
 
-=======
-  let userInputWeight = prompt("How much does the person weigh?");
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
+
   let newArray = people.filter(function (el) {
     if(el.weight == userInputWeight) {
       return true;
@@ -94,12 +89,9 @@ function searchByWeight(people) {
 }
 
 function searchByEyeColor(people) {
-<<<<<<< HEAD
+
   let userInputEyeColor = promptFor("What is the persons eye color?", checkValidUserInput);
 
-=======
-  let userInputEyeColor = prompt("What is the persons eye color?");
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
   let newArray = people.filter(function (el) {
     if(el.eyeColor == userInputEyeColor) {
       return true;
@@ -109,12 +101,9 @@ function searchByEyeColor(people) {
 }
 
 function searchByGender(people) {
-<<<<<<< HEAD
+
   let userInputGender = promptFor("What is the persons gender?", checkValidUserInput);
 
-=======
-  let userInputGender = prompt("What is the persons gender?");
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
   let newArray = people.filter(function (el) {
     if(el.gender == userInputGender) {
       return true;
@@ -122,15 +111,11 @@ function searchByGender(people) {
   });
   return newArray;
 }
-<<<<<<< HEAD
-function searchByAge(people) {
-  let userInputAge = promptFor("How old is the person you are looking for?", checkValidUserInput);
-=======
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
+
 
 function searchByAge(people) {
-  let userInputAgeAtLeast = prompt("The person you are looking for at least how old?");
-  let userInputAgeAtMost = prompt("The person you are looking for has a max age of?");
+  let userInputAgeAtLeast = promptFor("The person you are looking for at least how old?", checkValidUserInput);
+  let userInputAgeAtMost = promptFor("The person you are looking for has a max age of?", checkValidUserInput);
   let newArray = people.filter(function (el) {
     if ((el.age <= userInputAgeAtMost) && (el.age >= userInputAgeAtLeast)) {
       
@@ -141,12 +126,9 @@ function searchByAge(people) {
 }
 
 function searchByOccupation(people) {
-<<<<<<< HEAD
+
   let userInputOccupation = promptFor("What is this persons occupation?", checkValidUserInput);
 
-=======
-  let userInputOccupation = prompt("What is this persons occupation?");
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
   let newArray = people.filter(function (el) {
     if(el.occupation == userInputOccupation) {
       return true;
@@ -191,13 +173,12 @@ function searchByName(people){
     }
   });
     mainMenu(personFoundByFullName[0], people);
-<<<<<<< HEAD
+
 
   // TODO: find the person using the name they entered
 
 
-=======
->>>>>>> 258333eb6d948212164b97e30e60914e0781011f
+
 }
 
 function searchById(id,people) {
@@ -332,5 +313,5 @@ function chars(input){
 }
 
 function checkValidUserInput(input){
-   return input != null || input != "";
-}
+ return input != null || input != "";
+ }
