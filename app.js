@@ -1,6 +1,6 @@
 function app(people){
   people = insertAge(people);
-  var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'").toLowerCase();
   switch(searchType){
     case 'yes':
     searchByName(people);
@@ -9,7 +9,7 @@ function app(people){
     searchByTraits(people);
     break;
     default:
-    alert("Wrong! Please try again, following the instructions dummy. :)");
+    alert("You entered an invalid search type! Please try again.");
     app(people);
     break;
   }
