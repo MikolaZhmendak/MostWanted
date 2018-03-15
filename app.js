@@ -133,7 +133,7 @@ function searchByOccupation(people) {
 function mainMenu(person, people){
   if(!person){
     alert("Could not find that individual.");
-    return app(people); // restart
+    return app(people);
   }
 
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
@@ -310,7 +310,7 @@ function yesNo(input){
 }
 
 function chars(input){
-  return true; // default validation only
+  return true; 
 }
 
 function checkValidUserInput(input){
