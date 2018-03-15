@@ -16,11 +16,8 @@ function app(people){
 }
 
 function searchByTraits(people) {
-<<<<<<< HEAD
-  let userSearchChoice = promptFor("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit', 'reset' search. You may also 'restart' your search completely.", checkValidUserInput);
-=======
+
   let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation', 'quit'.");
->>>>>>> 47c09786d659a4503a70ac8803087fe79937ee60
   let filteredPeople;
 
   switch(userSearchChoice) {
@@ -42,17 +39,7 @@ function searchByTraits(people) {
     case "occupation":
       filteredPeople = searchByOccupation(people);
       break;
-<<<<<<< HEAD
-      case "reset":
-      alert("Your search criteria has been 'reset'");
-      searchByTraits(people);
-      break;
-      case "restart":
-      app(people);
-      break;
-=======
->>>>>>> 47c09786d659a4503a70ac8803087fe79937ee60
-      case "quit":
+     case "quit":
       return; 
       default:
       alert("You entered an invalid search type! Please try again.");
