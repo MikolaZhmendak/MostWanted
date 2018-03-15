@@ -1,3 +1,5 @@
+"use strict"
+
 function app(people){
   people = insertAge(people);
   var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'").toLowerCase();
