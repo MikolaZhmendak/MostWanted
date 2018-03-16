@@ -1,4 +1,4 @@
-//"use strict"
+"use strict"
 
 function app(people){
   people = insertAge(people);
