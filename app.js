@@ -1,4 +1,4 @@
-//"use strict"
+"use strict"
 
 function app(people){
   people = insertAge(people);
@@ -222,7 +222,7 @@ function getSibling(parents,people) {
 function getChildren(person,people) {
 	let child = [];
   child = people.filter(function (el) {
-		for (x = 0; x < el.parents.length; x++) {
+		for (let x = 0; x < el.parents.length; x++) {
 			if(el.parents[x] == person.id) {
 	      return true;
 	    }
